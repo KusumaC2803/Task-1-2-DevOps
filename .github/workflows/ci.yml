@@ -23,6 +23,7 @@ jobs:
 
       - name: Run tests
         env:
+          PYTHONPATH: .
           DATABASE_URL: sqlite:////tmp/ci.db
           OPENSEARCH_URL: http://localhost:9200
         run: pytest -q
