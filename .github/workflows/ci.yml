@@ -8,8 +8,10 @@ on:
 jobs:
   test:
     runs-on: ubuntu-latest
+
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout code
+        uses: actions/checkout@v4
 
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -21,6 +23,6 @@ jobs:
 
       - name: Run tests
         env:
-          DATABASE_URL: sqlite:///./ci.db
+          DATABASE_URL: sqlite:////tmp/ci.db
           OPENSEARCH_URL: http://localhost:9200
         run: pytest -q
